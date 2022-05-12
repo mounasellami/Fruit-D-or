@@ -1,0 +1,47 @@
+.Signindiv {
+  background: no-repeat url("../../res/img/bgAuth.png"); 
+  /* width: 50%;
+  height: 1500px; */
+  /* background-size: cover; */
+} 
+.d-flex {
+  justify-content: center;
+}
+.space {
+  margin-right: 10%;
+}
+
+#Home-container {
+  position: relative;
+  /* place-items: center center; */
+  place-items: right right;
+
+}
+#sign-in-from {
+  max-width: 464px;
+  color: white;
+  align-items: center;
+
+  padding: 6%;
+  margin: 8% 7%;
+  box-sizing: border-box;
+  background-color: black; /* rgba(0, 0, 0, 0.75); */
+  opacity: 0.7;
+  overflow: hidden;
+}
+/* .Form-control:focus { z-index: 7 }  */
+.Logo {
+  width: 173px;
+  height: 137px;
+  margin: 7%;
+}
+.facebook-icon,
+.google-icon {
+  background-color: white;
+  justify-content: space-evenly;
+  border-radius: 50%;
+  display: flex;
+}
+.forgot-password {
+  float: right;
+}

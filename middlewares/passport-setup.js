@@ -1,8 +1,8 @@
-//68. Install passport """npm i passport"""
+//68. Install passport """npm i passport""" (-neg passportJS(open source) alwayse do update all 4 month or less )
 //69. fama module itba3 passport should i instll it """npm i passport-jwt"""
 //react i5dem bl "web-back" ilem tousqui'est JS wa7dou wa7dou ie5ou 3 fichier. my app will have 3 fichier:js html css w ipressihom iwali kol fichier fi star we7ed
 //mch ia3ml extract ll"token" + "secrit key" wi7othom fi objet esmou option.w ba3d bech tt3ada fl header mte3 recket.wa9tly ena ndour fl app hwa 93d ll back end bech ia3raf esque ena user ou non
-    //"token" like braslay give to u the hotel when badigarde see u he know that u are from this hotel 
+    //"TOKEN" like bracelat give to u the hotel when badigarde see u he know that u are from this hotel 
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;//71.
 const passport= require('passport'); //74    //75.best practice nmchi server.js 
@@ -25,7 +25,7 @@ passport.use(
         }
     })
 ); //77. traitment stratigie
-module.exports = isAuth = () => passport.authenticate('jwt', { session: false });//79.3bara middleware e7na sna3neh //80. nmchi ll router
+module.exports = isAuth = () => passport.authenticate('jwt', { session: false });//79.3bara middleware e7na sna3neh.SHOULD right {session: false} if will not tod5ol b5athha mna3rach a3leh //80. nmchi ll router
 
 
 /*

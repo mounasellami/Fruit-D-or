@@ -26,19 +26,20 @@ exports.registerUser = async(req, res) => {
 }; //n3aiatlou f routes w ba3d server.js
 
 
-//2--- Login (SignIn)         
+//2--- Login (SignIn)  
+// System will create "TOKEN"(bracelet) automatically and he will give it to me.       
 exports.UserLogin = async (req, res) => {
-    //const login = email || phone   !!!!!!ASK SLIM MAMCHETLICH
-    //const { login , password } = req.body //find the user based on email
-    const { email , password } = req.body; //find the user based on email
+     //const login = email || phone   !!!!!!ASK SLIM MAMCHETLICH
+     //const { login , password } = req.body //find the user based on email
+    const { email , password } = req.body; //find the user based on email. he will take email user that i put it into req.body(input) & he will Search email if is't in DB
     
     const foundUser = await User.findOne({email});
     if (!foundUser) return res.status(402).json({msg: "Email not exist"}); 
     //console.log(password, user.password); //ncompary password(deja nda5al fih ma req.body) m3a user.password (eli ne5ou fih ml back-end)
     
-    const isMatch = await bcrypt.compare(password, foundUser.password); //59.meth ttba3 bcrypt "compare" take a password that his in the back-end to do dechifrement & compaire password (mte3 req.body(front-end)) wbech irej3lna true or false
+    const isMatch = await bcrypt.compare(password, foundUser.password); //59.meth ttba3 bcrypt "compare" take a password that his in the back-end to do dechifrement & compaire password (mte3 req.body(input in front-end)) wbech irej3lna true or false. If isMatch(password) true system give to us "TOKEN"
     //console.log(isMatch)           //60.       //"kanal md5" securité devops
-    if (!isMatch) return res.status(401).json({msg: "Bad credential"}); //61.If is false 
+    if (!isMatch) return res.status(401).json({msg: "Bad credential"}); //61.If isMatch is false  Bad credential
     
     const payload={
         id: foundUser._id, 
@@ -46,6 +47,8 @@ exports.UserLogin = async (req, res) => {
         fullName: foundUser.fullName,
         phone: foundUser.phone
     }; //65.   should Never But my Password because they can pirate me quickly
+    
+    //if isMatch true 
     try { 
         const token = await jwt.sign(payload, process.env.secretOrKey);
         res.status(200).json({msg: "Login with sucess", token: `Bearer ${token}`}); //66. token: bech nsta3mlha ki ib9a compte ma7loul, fl "jwt"i9oul lezm nanserie token fi chain de caracter w nzidha chain de caracter esmha bearer: hwa suport 9bal makenetch tzedet fi e5er misajour./ki ncopy token eli bech ijini fl postman fii jwt ijibli data eli 3andi

@@ -16,5 +16,5 @@ Router.get('/currentuser', isAuth(), (req, res)=>res.json(req.user) ) //80a.
 
 module.exports = Router; //38. All into router that why not exports default
 
-
-//finish back-end   81.cmd - create-react-app client . -npm start-in sign up right user-inspect-redux-state(loading:false)-click sign up
+//finish back-end   81.b. cmd-"""create-react-app client"""-npm start-in sign up right user-inspect-redux-state(loading:false)-click sign up when I do inspect i see data.
+                //81.a. run two server in the same time """npm install -g concurrently""" ASK SLIM MAMCHETLICH???????

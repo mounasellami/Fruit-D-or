@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:100,300,400,700"); /*google font for search box*/
+@import url("https://raw.github.com/FortAwesome/Font-Awesome/master/docs/assets/css/font-awesome.min.css");
+.header {
+  /* background: transparent; */
+  /* background: #141414; */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  font-size: 14px;
+  top: 0;
+  position: fixed;
+}
+.Navbar {
+    /* background: #141414; */
+  padding: 0 4% 0 3.2%; /***/
+  font-size: 14px;
+  font-weight: 700;
+  /* background-color: transparent; */
+  color: #ffda00;
+  /* position: sticky; ask Slim */
+}
+.searchBox {
+  position: relative;
+  display: inline-block; /* I can't use float: because inline-block ignored */
+  vertical-align: baseline; /*middle; /*property of the next to inline, inline-block or table-cell box (icon-search is in the middle align vertical of searchBox) */
+  height: 60px;
+  padding: 0;
+  color: #fff;
+  background: transparent;
+  /* background: #141414; */
+}
+.searchTitle {
+  vertical-align: baseline; /*middle; /*property of the next to inline, inline-block or table-cell box (icon-search is in the middle align vertical of searchBox) */
+  margin-right: 67px;
+
+  height: 32px; /*height for searchbox*/
+  font-size: 14px;
+  display: inline-block;
+  font-family: "Lato";
+  border: none;
+  outline: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  z-index: 3;
+  transition: width 0.4s cubic-bezier(0, 0.795, 0, 1);
+  cursor: pointer;
+}
+.searchTitle:focus:hover {
+  border-bottom: 1px solid #fff;
+  background: #141414;
+  color: white;
+}
+.searchTitle:focus {
+  width: 273px;
+  margin-right: 67px;
+
+  z-index: 1;
+  border-bottom: 1px solid transparent;
+  background: #141414;
+  color: white;
+  cursor: text;
+}
+.icon-search {
+  height: 57%; /*space between icon and top*/
+  width: 163px; /*space between icon and NavDropdown*/
+  display: inline-block;
+  background: url("../../res/img/icon-search.png") center center no-repeat;
+  background-size: 32px;
+  filter: invert(100%); /*I want to be white but I don't know how? ask Slim*/
+  -webkit-filter: invert(
+    100%
+  ); /*saturate(3)-grayscale(100%)-contrast(160%)- brightness(0.25)- blur(3px)-invert(100%)-sepia(100%)-hue-rotate(180deg)-opacity(50%); */
+  text-indent: -10000px;
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  opacity: 0.4;
+  transition: opacity 0.4s ease;
+}
+.icon-search:hover {
+  opacity: 0.3;
+}
+
+.rating-filter {
+  width: 10%;
+  display: flex;
+  margin-top: 17%;
+}
+
+#NavDropdown.Item {
+  display: flex;
+  justify-content: space-around;
+}
+.pull-left {
+  float: left;
+  margin: 4%;
+}
+/* .coloring{ background-color: #33e0ff */
+/* @keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */

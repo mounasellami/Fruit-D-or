@@ -4,14 +4,14 @@
 
 require('dotenv').config(); //Importation dotenv (shoud write at the begining if is not maybe will not read it)
 const express = require('express'); //8. Require express       //7. B.."""npm i express""" Install Express to create package-local.json Alwayse In all proj
-
 const connectDB = require('./config/connectDB'); // Require connectDB
 const user = require('./routes/user'); //39.import
-
 const passport = require('passport'); //75.       another meth: "  const cors = require('cors')   "
-
+//const cors = require('cors'); 
 const app = express(); //Init express       
-app.use(passport.initialize()); //76.       another meth: "  app.use(cors()) ""
+
+//app.use(cors());
+app.use(passport.initialize()); //76. 
 
 //6.   //4---Parse data to json---: Middleware               
 app.use(express.json()); //43.     //42. M.Atlas - Data Base- view Monitoring-collection
