@@ -1,5 +1,5 @@
 body {
-  background: #141414;
+  background: black;
   color: #fff;
   cursor: default;
   /* line-height: 1.2; */
@@ -16,4 +16,32 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* 3.1- css design for 2 buttons :) :) :) in *******app.css******* */
+.button {
+  padding: 10px;
+  width: 150px;
+  text-decoration: none;
+   margin: 10px;
+  font-weight: 700;
+}
+
+/* card for displaying contact */
+.contact-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+}
+.edit-button {
+  padding: 10px;
+  width: 100px;
+  text-decoration: none;
+   margin: 10px;
+  font-weight: 700;
 }

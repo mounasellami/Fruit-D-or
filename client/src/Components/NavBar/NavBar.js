@@ -32,7 +32,7 @@ const NavBar=({setFilterByName, filterByRate, setFilterByRate}) => {
           <Nav className='me-auto my-2 my-lg-0'>
             <Nav.Link href="Home"><Link to='/Home'>Home</Link></Nav.Link>
             <Nav.Link href="Fruits"><Link to='/Fruits'>Fruits</Link></Nav.Link>
-            <Nav.Link href="Légumes"><Link to='/Légumes'>Légumes</Link></Nav.Link>
+            <Nav.Link href="Legumes"><Link to='/Legumes'>Légumes</Link></Nav.Link>
             <Nav.Link href="MicroPousse"><Link to='/MicroPousse'>Micro pousse</Link></Nav.Link>
             <Nav.Link href="Fleurs"><Link to='/Fleurs'>Fleurs</Link></Nav.Link>
             <Nav.Link href="Register"><Link to='/Register'>Register</Link></Nav.Link>

@@ -1,8 +1,8 @@
-.Signindiv {
+.Registerdiv {
   background: no-repeat url("../../res/img/bgAuth.png"); 
+  background-size: cover;
   /* width: 50%;
   height: 1500px; */
-  /* background-size: cover; */
 } 
 .d-flex {
   justify-content: center;

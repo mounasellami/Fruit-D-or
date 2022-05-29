@@ -1,15 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Register.css';
-import { Container, Form, Button } from 'react-bootstrap';
+  import { Container, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+// import BackgroundVideo from "../../res/video/magasinFruitsDOr.mp4";
 import iconfacbook from "../../res/img/icon-facebook-48.png";
 import icongoogle from "../../res/img/icon-google-48.png";
-// import BackgroundVideo from "../../res/video/magasinFruitsDOr.mp4";
+import Loader from "../Loader";
+import { registerUser } from '../../JS/actions/actionTask';
+import { useDispatch, useSelector } from 'react-redux';
 
-const SignIn=({isAuth,  signin, signup}) => {
-  return (
-    <div className= "Signindiv"> 
+const Register = ({isAuth}) => {
+
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+
+  const dispatch = useDispatch();
+  const loading = useSelector(state => state.reducerTask.loading);
+
+  const register = (e) => {
+    e.preventDefault();
+    const newUser = { fullName, email, phone, password }
+
+
+    dispatch(registerUser(newUser));
+    setFullName('');
+    setEmail('');
+    setPassword('');
+    setPhone('');
+  }
+    return loading ? (<Loader />) : (
+    <div className= "Registerdiv"> 
       {/*autoPlay: automaticallyStartVideo   loop: infiniteLoop  muted: turnsOffSound */}
       {/* <video id="background-video" autoPlay   loop   muted >
             <source src={BackgroundVideo} alt="background video" type="video/mp4"/>
@@ -27,6 +49,7 @@ const SignIn=({isAuth,  signin, signup}) => {
                          size="lg"  //there is only small or large size
                          autoComplete="username"
                          className="position-relative" 
+                         onChange={(e)=>setFullName(e.target.value)}
            />
          </Form.Group>
          <Form.Group controlId="sign-in-email-address">
@@ -36,6 +59,7 @@ const SignIn=({isAuth,  signin, signup}) => {
                          size="lg"  //there is only small or large size
                          autoComplete="username"
                          className="position-relative" 
+                         onChange={(e)=>setEmail(e.target.value)}
            />
          </Form.Group>
          <Form.Group controlId="sign-in-Phone">
@@ -44,7 +68,8 @@ const SignIn=({isAuth,  signin, signup}) => {
                          placeholder="Phone"
                          size="lg"  //there is only small or large size
                          autoComplete="Phone"
-                         className="position-relative" 
+                         className="position-relative"
+                         onChange={(e)=>setPhone(e.target.value)} 
            />
          </Form.Group>
          <Form.Group controlId="sign-in-password" className="mb-3">
@@ -53,19 +78,13 @@ const SignIn=({isAuth,  signin, signup}) => {
                          placeholder="Password"
                          size="lg"  //there is only small or large size
                          autoComplete="current-passoword"
-                         className="position-relative" 
+                         className="position-relative"
+                         onChange={(e)=>setPassword(e.target.value)} 
            />
          </Form.Group>
 
          <div className= "d-grid " >
-           {/* <Button variant="info" size="lg" className= "mb-2"> Sign in </Button> */}
-           <Form inline>
-             <Button variant="outline-info" className="signinBtn"
-                onClick={isAuth ?  signup: signin}
-              >
-                {isAuth ? "Sign up" : "Sign in"}
-             </Button>
-            </Form>
+           <Button variant="info" size="lg" className= "mb-2" onClick={register}> Sign in </Button>
          </div>
           <div className="divider">-------------- or sign in with --------------</div>
           <div className="icon-party d-flex " style={{fontWeight: "600", fontSize: "13px" }} >
@@ -85,8 +104,7 @@ const SignIn=({isAuth,  signin, signup}) => {
           </div>
         </Form> 
       </Container>
-   </div>
-  );
+  </div> );
 };
 
-export default SignIn;
+export default Register;

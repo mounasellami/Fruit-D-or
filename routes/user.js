@@ -8,7 +8,7 @@ const Router = express.Router(); //35.
 
 Router.post('/register', registerRules(), validator, registerUser); //36. corpac ft    //55.nedi 1(registerRules: n3abi tab) / 2(validator: tcheck esque m3abia wella ferga)
 // Router.post("/test", (req,res) => {res.status(200).json({msg : "ok"})})
-Router.post('/login', UserLogin); //58a.post:bech nda5al fl req.body email w password whwa bech ib3athhom lDataBase
+Router.post('/SignIn', UserLogin); //58a.post:bech nda5al fl req.body email w password whwa bech ib3athhom lDataBase
 //58b.testing in Postman- POST- http://localhost:7000/user/login - {"email": "flen@gmail.com","password": "i7eb faltena"}
 
 Router.get('/currentuser', isAuth(), (req, res)=>res.json(req.user) ) //80a.

@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
 import './App.css';
-import NavBar from './Components/NavBar/NavBar';
-import {moviesData} from './Components/MoviesData';
-import MoviesList from './Components/MoviesList/MoviesList';
-import Footer from './Components/Footer/Footer';
 import { Routes, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import NavBar from './Components/NavBar/NavBar';
+import {articlesData} from './Components/ArticlesData';
+import ArticlesList from './Components/ArticlesList/ArticlesList';
+import Fruits from './Components/Fruits/Fruits';
+import Legumes from './Components/Legumes/Legumes';
+import MicroPousse from './Components/MicroPousse/MicroPousse';
+import Fleurs from './Components/Fleurs/Fleurs';
 import Register from './Components/Register/Register';
 import SignIn from './Components/SignIn/SignIn';
+import Footer from './Components/Footer/Footer';
 import UserProfile from './Components/UserProfile/UserProfile';
 import Trailers from './Components/Trailers/Trailers';
 import PrivateRoute from './Components/PrivateRoute';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const [moviesList, setMoviesList]=useState(moviesData);
+  const [articlesList, setArticlesList]=useState(articlesData);
   const [filterByName, setFilterByName]=useState('');
   const [filterByRate, setFilterByRate]=useState(1);
 
@@ -21,7 +26,8 @@ function App() {
   const signin = () => setIsAuth(true);
   const signup = () => setIsAuth(false);
 
-  const addMovie = (newMovie) => setMoviesList([...moviesList, newMovie]);
+  const addArticle = (newArticle) => setArticlesList([...articlesList, newArticle]);
+
   return (
     <div className="App" >
       <NavBar
@@ -30,22 +36,22 @@ function App() {
       />
 
       <Routes >
-        {/* NOT CORRECT: <Route path='/Movies' element={ <PrivateRoute component={ <MoviesList moviesList={moviesList} filterByName={filterByName} filterByRate={filterByRate} addMovie={addMovie}/>} isAuth={isAuth}/>} /> */}
-        <Route path='/Home' element={<PrivateRoute render={()=>(<MoviesList moviesList={moviesList}
-                                                                            filterByName={filterByName}
-                                                                            filterByRate={filterByRate} 
-                                                                            addMovie={addMovie}
-                                                                  />)
-                                                            }
+        {/* NOT CORRECT: <Route path='/Movies' element={ <PrivateRoute component={ <ArticlesList articlesList={articlesList} filterByName={filterByName} filterByRate={filterByRate} addArticle={addArticle}/>} isAuth={isAuth}/>} /> */}
+        <Route path='/Home' element={<PrivateRoute render={()=>(<ArticlesList articlesList={articlesList}
+                                                                              filterByName={filterByName}
+                                                                              filterByRate={filterByRate} 
+                                                                              addArticle={addArticle}
+                                                                />)
+                                                          }
                                                       isAuth={isAuth}
                                         />}
         />
-        <Route path='/Home/:name' element={<Trailers moviesData={moviesData} />}/> 
+        <Route path='/Home/:name' element={<Trailers ArticlesData={articlesData} />}/> 
         
-        {/*<Route path='/Fruits' element={ } />*/}
-        {/*<Route path='/Légumes' element={< />} />*/}
-        {/*<Route path='/MicroPousse' element={< />} />*/}
-        {/*<Route path='/Fleurs' element={< />} />*/}
+        <Route path='/Fruits' element={<Fruits />} />
+        <Route path='/Legumes' element={<Legumes />} />
+        <Route path='/MicroPousse' element={<MicroPousse />} />
+        <Route path='/Fleurs' element={<Fleurs />} />
         
         <Route path='/Register' element={ <Register isAuth={isAuth} signin={signin} /> } />
         {/* <Route path='/Register' element={<Register isAuth={isAuth} signup={signup} signin={signin} />} />   */}

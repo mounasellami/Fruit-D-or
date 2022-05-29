@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken'); //63.
 
 //1--- Register (Log on) (Sign up)
 exports.registerUser = async(req, res) => {
+    console.log(req.body)
     const user = {...req.body}; //30.check all atribute alone (password-mail...) because we can't do 2 accounts in same email
     const email=user.email; //43.recuperer email from req.body
     const searchRes=await User.findOne({email}); //43.search  to the user in this email
